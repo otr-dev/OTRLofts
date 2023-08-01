@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cincinnati OTR Contact</title>
+    <meta
+      name="description"
+      content="Explore top-tier apartments in Cincinnati's vibrant Over-the-Rhine (OTR) district with our modern professionally managed buildings. Secure your dream living space amidst OTR's cultural scene, historic architecture, and urban nightlife. Making OTR living easy and enjoyable."
+    />
+    <meta
+      name="keywords"
+      content="Cincinnati, OTR, Over the Rhine, rental apartments, units, 1 bedroom, 2 bedroom, studio, walkable, downtown"
+    />
+    <meta name="author" content="Golan Trevize LLC" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" />
+    <!-- Carousel -->
+    <link rel="stylesheet" href="library/owl.carousel.min.css" />
+    <link rel="stylesheet" href="library/owl.theme.default.min.css" />
+    <script src="library/jquery.min.js"></script>
+    <script src="library/owl.carousel.min.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="ui/style.css" />
+    <!-- Email Service-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/script.js"></script>
+    <!--Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body class="_page">
+    <nav class="_navigation _navigation--relative">
+      <a class="logo" href="/">
+        <img
+          class="logo__image"
+          src="assets/logos/OTR-Lofts_logo_dark.png"
+          alt="OTR Lofts logo"
+        />
+      </a>
+      <div class="content">
+        <a
+          class="_t _t--font-secondary _t--20 _t--link link"
+          href="pendleton-lofts.html"
+          >Pendleton Lofts</a
+        >
+        <a
+          class="_t _t--font-secondary _t--20 _t--link link"
+          href="findlay-view-lofts.html"
+          >Findlay View Lofts</a
+        >
+        <a
+          class="_t _t--font-secondary _t--20 _t--link-active link"
+          href="contact-us.html"
+          >Contac Us</a
+        >
+      </div>
+      <div class="menu">
+        <button id="openNavigation" class="menu__btn">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </nav>
+
+    <div class="_section _section--bc-primary">
+      <div class="_section__content">
+        <div class="_contact _grid">
+          <div class="_contact__left _col _col-4 _col-m-6 _col-s-12">
+            <div class="head-line">
+              <span class="subtitle _t _t--20 _t--medium">LOFTS I</span>
+              <h2 class="title _t--font-secondary _t--48">Pendleton Lofts</h2>
+            </div>
+            <a
+              class="logo"
+              target="_blank"
+              href="https://prorealtypm.managebuilding.com/Resident/Public/Home"
+            >
+              <img
+                class="logo__image"
+                src="assets/logos/getway_logo.png"
+                alt="Getway logo"
+              />
+            </a>
+          </div>
+          <div class="_contact__right _col _col-8 _col-m-6 _col-s-12">
+            <div class="info">
+              <p class="contact _t _t--24 _t--medium">Phone: 513.867.3501</p>
+              <p class="contact _t _t--24 _t--medium">
+                Email:
+                <a
+                  class="_t _t--24 _t--medium _t--link-active"
+                  href="mailto:509@OTRLofts.com"
+                  >509@OTRLofts.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="_section _section--bc-primary _section--border-top">
+      <div class="_section__content">
+        <div class="_contact _grid">
+          <div class="_contact__left _col _col-4 _col-m-6 _col-s-12">
+            <div class="head-line">
+              <span class="subtitle _t _t--20 _t--medium">LOFTS II</span>
+              <h2 class="title _t--font-secondary _t--48">
+                Findlay View Lofts
+              </h2>
+            </div>
+            <a
+              class="logo"
+              target="_blank"
+              href="https://app.tenantturner.com/qualify/1733-elm-street---1c?p=Company"
+            >
+              <img
+                class="logo__image"
+                src="assets/logos/true-home_logo.png"
+                alt="True-home logo"
+              />
+            </a>
+          </div>
+          <div class="_contact__right _col _col-8 _col-m-6 _col-s-12">
+            <div class="info">
+              <p class="contact _t _t--24 _t--medium">Phone: 513.813.4129</p>
+              <p class="contact _t _t--24 _t--medium">
+                Email:
+                <a
+                  class="_t _t--24 _t--medium _t--link-active"
+                  href="mailto:509@OTRLofts.com"
+                  >1733@OTRLofts.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="_section _section--bc-secondary">
+      <div class="_section__content">
+        <section class="_form">
+          <h3
+            class="_form__title _t _t--font-secondary _t--color-secondary _t--40"
+          >
+            Have a question?
+          </h3>
+          <div class="_form__content">
+            <form
+              id="myForm"
+              onsubmit="return submitForm()"
+              action="#"
+              method="post"
+            >
+              <div class="_grid _grid-row-gap-no">
+                <!--Form Control firstName-->
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="firstNameFC"
+                      name="firstNameFC"
+                      placeholder="First Name"
+                      required
+                    />
+                    <span class="error" id="firstNameFCError"></span>
+                  </div>
+                </div>
+                <!--Form Control lastName-->
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="lastNameFC"
+                      name="lastNameFC"
+                      placeholder="Last Name"
+                      required
+                    />
+                    <span class="error" id="lastNameFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="_grid _grid-row-gap-no">
+                <div
+                  class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-s-6 _col-xs-12"
+                >
+                  <!--Form Control email-->
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="emailFC"
+                      name="emailFC"
+                      placeholder="Email"
+                      required
+                    />
+                    <span class="error" id="emailFCError"></span>
+                  </div>
+                </div>
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <!--Form Control phone-->
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="phoneFC"
+                      name="phoneFC"
+                      placeholder="Phone"
+                      required
+                    />
+                    <span class="error" id="phoneFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!--Form Control receiveTextMessages-->
+              <div class="_form-control _form-control--checkbox">
+                <label for="receiveTextMessagesFC" class="container"
+                  >Yes, I’d be happy to receive text messages
+                  <input
+                    type="checkbox"
+                    id="receiveTextMessagesFC"
+                    name="receiveTextMessagesFC"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <!--Form Control Group property-->
+              <div class="_form-control-checkbox-group">
+                <p class="labels">I am interested in a property:</p>
+                <div class="checkboxs">
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="propertyPendletonLoftsFC" class="container"
+                      >Pendleton Lofts
+                      <input
+                        type="checkbox"
+                        id="propertyPendletonLoftsFC"
+                        name="propertyPendletonLoftsFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="propertyFindlayViewLoftsFC" class="container"
+                      >Findlay View Lofts
+                      <input
+                        type="checkbox"
+                        id="propertyFindlayViewLoftsFC"
+                        name="propertyFindlayViewLoftsFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!--Form Control Group description-->
+              <div class="_grid">
+                <div class="_col _col-4 _col-l-6 _col-m-8 _col-s-12 _col-xs-12">
+                  <div class="_form-control _form-control--texarea">
+                    <label for="messageFC">Message:</label>
+                    <textarea
+                      id="messageFC"
+                      name="messageFC"
+                      required
+                      placeholder="Message"
+                    ></textarea>
+                    <span class="error" id="messageFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!--Form Control Group Preffered Method-->
+              <div class="_form-control-checkbox-group">
+                <p class="labels">Preffered Method of Contact:</p>
+                <div class="checkboxs">
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodCallFC" class="container"
+                      >Call
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodCallFC"
+                        name="prefferedMethodCallFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodTextFC" class="container"
+                      >Text
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodTextFC"
+                        name="prefferedMethodTextFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodEmailFC" class="container"
+                      >Email
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodEmailFC"
+                        name="prefferedMethodEmailFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  id="recaptcha"
+                  data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                ></div>
+              </div>
+              <div>
+                <input class="_btn _btn--inverse" type="submit" value="SEND" />
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+    <footer>
+      <div class="_section _section _section--bc-primary">
+        <div class="_section__content">
+          <div class="_footer _grid">
+            <div class="main _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <a class="logo" href="/">
+                <img
+                  class="logo__image"
+                  src="assets/logos/OTR-Lofts_logo_dark.png"
+                  alt="OTR Lofts logo"
+                />
+              </a>
+            </div>
+
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">Pendleton Lofts</div>
+              <div class="info__content">
+                <div class="info__line">
+                  <p class="_t _t--20 _t--font-secondary">513.867.3501</p>
+                </div>
+                <div class="info__line">
+                  <a
+                    class="_t _t--20 _t--font-secondary"
+                    href="mailto:509@OTRLofts.com"
+                    >509@OTRLofts.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">
+                Findlay View Lofts
+              </div>
+              <div class="info__content">
+                <div class="info__line">
+                  <p class="_t _t--20 _t--font-secondary">513.813.4129</p>
+                </div>
+                <div class="info__line">
+                  <a
+                    class="_t _t--20 _t--font-secondary"
+                    href="mailto:1733@OTRLofts.com"
+                    >1733@OTRLofts.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">Follow Us</div>
+              <div class="info__content">
+                <div class="info__line socials">
+                  <a class="social" href=""
+                    ><ion-icon name="logo-facebook"></ion-icon
+                  ></a>
+                  <a class="social" href=""
+                    ><ion-icon name="logo-linkedin"></ion-icon
+                  ></a>
+                  <a class="social" href=""
+                    ><ion-icon name="logo-instagram"></ion-icon
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_section _section _section--bc-secondary _section--padding-S">
+        <div class="_section__content">
+          <div class="_copywrite _t _t--14 _t--color-secondary">
+            © 2023 OTRlofts.com
+          </div>
+        </div>
+      </div>
+    </footer>
+    <nav id="navigation" class="_nav-modal">
+      <a class="_t _t--font-secondary _t--color-secondary _t--24 link" href="/"
+        >Home</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 _t--link link"
+        href="pendleton-lofts.html"
+        >Pendleton Lofts</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 _t--link link"
+        href="findlay-view-lofts.html"
+        >Findlay View Lofts</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 _t--link-active link"
+        href="contact-us.html"
+        >Contac Us</a
+      >
+      <button id="closeNavigation" class="close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </nav>
+    <div id="modal"></div>
+  </body>
+</html>

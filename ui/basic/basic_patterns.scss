@@ -1,0 +1,115 @@
+$break-max: 1600;
+$break-extralarge: 1440;
+$break-large: 1224;
+$break-medium: 1024;
+$break-small: 768;
+$break-extrasmall: 576;
+$break-min: 320;
+
+@mixin resp($media) {
+  @if $media==XS {
+    @media only screen and (max-width: #{$break-extrasmall - 1}px) {
+      @content;
+    }
+  } @else if $media==S {
+    @media only screen and (max-width: #{$break-small - 1}px) {
+      @content;
+    }
+  } @else if $media==M {
+    @media only screen and (max-width: #{$break-medium - 1}px) {
+      @content;
+    }
+  } @else if $media==L {
+    @media only screen and (max-width: #{$break-large - 1}px) {
+      @content;
+    }
+  } @else if $media==XL {
+    @media only screen and (max-width: #{$break-extralarge - 1}px) {
+      @content;
+    }
+  }
+}
+
+@mixin respSpecif($dimension) {
+  @media only screen and (max-width: #{$dimension - 1}px) {
+    @content;
+  }
+}
+
+@mixin respSpecifMin($dimension) {
+  @media only screen and (min-width: #{$dimension + 1}px) {
+    @content;
+  }
+}
+
+@mixin image($img, $width-box, $height-box, $width, $height, $position) {
+  width: $width-box;
+  min-width: $width-box;
+  height: $height-box;
+  background: url('#{$img-root}/#{$img}') no-repeat $position;
+  background-size: $width $height;
+}
+
+@mixin imageChange($img) {
+  background-image: url('#{$img-root}/#{$img}') !important;
+}
+
+@mixin icon-modify() {
+  * {
+    @content;
+  }
+}
+
+// @function clampCal($min, $max, $unit: px) {
+//   $min: calc($min / 1px);
+//   $max: calc($max / 1px);
+
+//   $minScreen: $break-extrasmall;
+//   $maxScreen: $break-extralarge;
+
+//   $slope: calc(($max - $min) / ($maxScreen - $minScreen));
+
+//   $x: calc($min - $slope * $minScreen);
+
+//   $screen: $slope * 100;
+
+//   $ret: clamp(#{$min}px, #{$screen}vw + #{$x}px, #{$max}px);
+
+//   @if $unit == rem {
+//     $ret: clamp(#{pxToRem($min)}, #{$screen}vw + #{pxToRem($x)}, #{pxToRem($max)});
+//   }
+//   @return $ret;
+// }
+
+// @function pxToRem($value) {
+//   @return calc($value / 16) + rem;
+// }
+
+@function clampCal($min, $max) {
+  $minScreen: $break-extrasmall;
+  $maxScreen: $break-extralarge;
+
+  $slope: ($max - $min) / ($maxScreen - $minScreen); // Uklonite calc() unutar $slope promenljive
+
+  $x: $min - $slope * $minScreen;
+
+  $screen: $slope * 100;
+
+  // Prilagodite izraz za clamp koristeći vw jedinicu bez calc()
+  $ret: clamp(#{$min}px, #{$screen}vw + " + " + #{$x}px, #{$max}px);
+
+  @return $ret;
+}
+
+// @function clampCalMinMaxScreen($min, $max, $minScreen, $maxScreen) {
+//   $scope: calc(($max - $min) / ($maxScreen - $minScreen));
+
+//   $x: calc($min - $scope * $minScreen);
+
+//   $screen: $scope * 100;
+
+//   $ret: clamp(#{$min}px, #{$screen}vw + #{$x}px, #{$max}px);
+
+//   @return $ret;
+// }
+

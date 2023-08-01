@@ -1,0 +1,17 @@
+$break-max: 1600;
+$break-extralarge: 1440; 
+$break-large: 1224; 
+$break-medium: 1024;
+$break-small: 768; 
+$break-extrasmall: 576; 
+$break-min: 320; 
+
+$breaks: (
+  max: $break-max,
+  xl: $break-extralarge,
+  l: $break-large,
+  m: $break-medium,
+  s: $break-small,
+  xs: $break-extrasmall,
+  min: $break-min
+);

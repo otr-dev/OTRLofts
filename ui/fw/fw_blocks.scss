@@ -1,0 +1,576 @@
+._page{
+    background-color: $color-background-primary;
+}
+
+._section{
+    &__content{
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 70px 0;
+
+        @include resp(XL){
+            margin: 0 $s-s-xs;
+        }
+    }
+
+    &--bc-primary{
+        background-color: $color-background-primary;
+    }
+    &--bc-secondary {
+        background-color: $color-background-secondary;
+    }
+
+    &--padding{
+        &-S{
+
+            ._section__content {
+                    padding: $s-xs 0;
+                }
+        }
+    }
+
+    &--border-top {
+        ._section__content {
+                border-top: 1px solid $color-line-primary;
+            }
+    }
+
+}
+
+._cover{
+    height: 80vh;
+    position: relative;
+
+    @include resp(S){
+        height: 100vh;
+    }
+    
+
+    &__picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  &__background{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    background-color: $color-background-secondary-opacity;
+  }
+
+  &__content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .title__row {
+            margin-bottom: 8px;
+        }
+    
+  }
+
+  .navigation{
+    margin-top: 16px;
+    &__or{
+        margin: 0 8px;
+        @include resp(XS) {
+               display: none;
+            }
+    }
+    @include resp(XS){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .navigation-item{
+            margin-bottom: 8px;
+        }
+    }
+
+
+  }
+}
+
+
+._preview {
+
+    &__main{
+        margin-top: $s-s;
+    }
+
+    &__footer{
+        margin-top: $s-s;
+    }
+
+    .tags{
+        margin-top: 8px;
+
+        >* {
+          margin-right: 8px;  
+        }
+    }
+
+    .links{
+        >* {
+                margin-right: 8px;
+            }
+    }
+}
+
+._box{
+    margin-top: $s-s;
+    &__header{
+        margin-bottom: $s-xs;
+    }
+    &--first{
+        margin-top: 0;
+    }
+
+    .logo{
+        &__image{
+            width: 300px;
+        }
+    }
+
+    .floorplan{
+        width: 100%;
+    }
+}
+
+._map{
+    &__title{
+        max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: $s-xs;
+        
+            @include resp(XL) {
+                margin: 0 $s-s-xs;
+            }
+    }
+
+    &__content{
+        height: 70vh;
+    }
+}
+
+._form{
+    &__title{
+        margin-bottom: $s-s;
+    }
+}
+
+
+// FORM
+
+._form-control{
+    position: relative;
+    padding-bottom: 24px;
+    .error{
+        position: absolute;
+        right: 0;
+        text-align: right;
+        bottom: 0;
+        margin-top: 3px;
+        font-family: 'Manrope-Regular';
+        font-size: 14px;
+        color: $color-text-secondary;
+    }
+}
+._form-control--basic{
+    input{
+        width: 100%;
+        background-color: transparent;
+        outline: none;
+        font-family: 'Manrope-Regular';
+        font-size: clampCal(16, 18);
+        color: $color-text-secondary;
+        border: none;
+        border-bottom: 1px solid $color-text-secondary;
+        padding: 0;
+        padding-bottom: 3px;
+        &::placeholder{
+            color: $color-text-secondary;
+        }
+        &:focus{
+            background-color: rgba(255, 255, 255, 0.067);
+        }
+    }
+
+    label{
+        display: none;
+    }
+}
+
+._form-control--texarea {
+    textarea {
+        width: calc(100% - 20px);
+        background-color: transparent;
+        outline: none;
+        font-family: 'Manrope-Regular';
+        font-size: clampCal(16, 16);
+        color: $color-text-secondary;
+        border: 1px solid $color-text-secondary;
+        padding: 10px;
+        height: 100px;
+
+        &::placeholder {
+            color: $color-text-secondary;
+        }
+
+        &:focus {
+            background-color: rgba(255, 255, 255, 0.067);
+        }
+    }
+
+    label {
+        display: none;
+    }
+}
+
+._form-control--checkbox {
+    display: inline-block;
+        /* The container */
+    .container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Manrope-Regular';
+    font-size: clampCal(16, 18);
+    color:$color-secondary;
+    align-items: center;
+
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid white;
+    background-color: white;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+    background-color: rgba(255, 255, 255, 0.882);
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    // .container input:checked ~ .checkmark {
+    // }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+    display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+    left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid $color-background-secondary;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+._form-control-checkbox-group{
+    .labels{
+        font-family: 'Manrope-Regular';
+        font-size: clampCal(16, 18);
+        color: $color-text-secondary;
+        margin-bottom: 16px;
+    }
+    .checkboxs{
+        >*{
+            margin-right: 16px;
+        }
+    }
+}
+
+._gallary{
+    position: relative;
+    .owl-dots{
+        display: none !important;
+    }
+
+    .btn{
+        background-color: rgba(0, 0, 0, 0.277);
+        position: absolute;
+        top: calc(50% - 20px);
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        @include interaction-link-hover();
+
+        ion-icon {
+            cursor: pointer;
+            color: $color-secondary;
+        }
+
+        &--next{
+            right: 0;
+        }
+
+        &--previus{
+            left: 0;
+        }
+    }
+}
+
+
+._footer{
+    .logo{
+        &__image{
+            width: 220px;
+            @include resp(M){
+                width: 150px;
+            }
+        }
+        @include resp(S){
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .info {
+        
+        &__content{
+            margin-top: clampCal(8, 24);
+        }
+        @include resp(S){
+            text-align: center;
+            margin-top: 8px;
+        }
+    }
+
+    .socials{
+        .social{
+            @include interaction-link-hover();
+            margin-right: 8px;
+            ion-icon {
+                color: $color-primary;
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+._copywrite{
+    text-align: center;
+}
+
+._navigation {
+    position: absolute;
+    left: $s-s-xs;
+    right: $s-s-xs;
+    z-index: 30;
+    height: clampCal(50, 90);
+    margin-top: 24px;
+    display: flex;
+
+    &--relative{
+        position: relative;
+        left: auto;
+        right: auto;
+        margin-left: $s-s-xs;
+        margin-right: $s-s-xs;
+
+        ion-icon {
+                color: $color-primary !important;
+            }
+    }
+
+    
+    
+    .logo, .menu{
+        width: 150px;
+    }
+
+    .logo{
+        &__image{
+            height: 100%;
+        }
+    }
+
+    .content{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link{
+        margin: 0 16px;
+    }
+
+    .menu{
+        display: flex;
+        align-items: start;
+        justify-content: flex-end;
+        visibility: hidden;
+
+        &__btn{
+            ion-icon {
+                    font-size: 40px;
+                    color: $color-secondary;
+                }
+        }
+    }
+
+    @include resp(M){
+        justify-content: space-between;
+        .content{
+            display: none;
+        }
+        .menu {
+           visibility: visible;
+        }
+    }
+
+
+}
+
+._nav-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: $color-background-secondary;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .link{
+        margin: 8px;
+    }
+   
+    .close{
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        ion-icon {
+                font-size: 40px;
+                color: $color-secondary;
+            }
+    }
+}
+
+
+._modal-gallery{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: $color-background-secondary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    .content{
+        width: calc(100vh - 100px);
+
+        @media screen and (max-aspect-ratio: 4/4.2) {
+            height: auto;
+            width:100%;
+        }    
+
+        
+       
+
+        
+        
+    }
+
+    .close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+    
+            ion-icon {
+                font-size: 40px;
+                color: $color-secondary;
+            }
+        }
+}
+
+._contact{
+    .head-line{
+        margin-bottom: $s-s;
+    }
+    .logo{
+        &__image{
+            width: 300px;
+        }
+    }
+    .info{
+        margin-top: 24px;
+    }
+}

@@ -1,0 +1,211 @@
+// MODIFY
+$fonts: (
+    (
+        'name': 'Rambla',
+        'types': ('Regular', 'Italic', 'Bold', 'BoldItalic'))
+    (
+        'name': 'Manrope',
+        'types': ('Regular', 'Medium', 'ExtraLight', 'Bold', 'SemiBold', 'ExtraBold')
+    )
+);
+
+
+@each $font in $fonts {
+    $font-name: map-get($font, 'name');
+    $font-types: map-get($font, 'types');
+
+    @each $type in $font-types {
+        $font-family: '#{$font-name}-#{$type}';
+        $font-path: "/assets/fonts/#{$font-name}-#{$type}.woff";
+
+        @font-face {
+            font-family: #{$font-family};
+            src: url(#{$font-path}) format("woff");
+        }
+    }
+}
+
+._t {
+    // MODIFY
+    font-family: 'Manrope-Regular';
+    font-size: clampCal(18, 20);
+    color: $color-text-primary;
+    font-weight: 200;
+    text-decoration-thickness: clampCal(1.3, 1.5);
+    text-underline-offset: clampCal(1, 3);
+    text-decoration-color: $color-text-primary;
+    
+
+    // MODIFY
+    &--font-primary{
+        font-family: 'Manrope-Regular';
+    }
+    // MODIFY
+    &--font-secondary{
+        font-family: 'Rambla-Regular';
+    }
+
+    &--color-primary{
+        color: $color-text-primary;
+    }
+
+    &--color-secondary{
+        color: $color-text-secondary;
+        text-decoration-color: $color-text-secondary;
+    }
+ 
+
+    &--14{
+        font-size: clampCal(14, 14);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--16 {
+        font-size: clampCal(14, 16);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--18 {
+        font-size: clampCal(16, 18);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--20 {
+        font-size: clampCal(18, 20);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--24 {
+        font-size: clampCal(20, 24);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--32 {
+        font-size: clampCal(24, 32);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--40 {
+        font-size: clampCal(32, 40);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+        text-decoration-color: $color-text-primary;
+    }
+
+    &--48 {
+        font-size: clampCal(36, 48);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+        text-decoration-color: $color-text-primary;
+    }
+
+    &--56 {
+        font-size: clampCal(40, 56);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+        text-decoration-color: $color-text-primary;
+    }
+
+    &--64 {
+        font-size: clampCal(48, 64);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--72{
+        font-size: clampCal(56, 72);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+        
+    }
+
+    &--80{
+        font-size: clampCal(64, 80);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--88{
+        font-size: clampCal(72, 88);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--96{
+        font-size: clampCal(80, 96);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--104{
+        font-size: clampCal(88, 104);
+        text-decoration-thickness: clampCal(1.3, 1.5);
+        text-underline-offset: clampCal(1, 3);
+    }
+
+    &--paragraph{
+        line-height: 160%;
+    }
+        
+   
+    &--thin {
+        font-weight: 100;
+    }
+
+    &--extra-light {
+        font-weight: 200;
+    }
+
+    &--light {
+        font-weight: 300;
+    }
+
+    &--medium {
+        font-weight: 500;
+    }
+
+    &--semi-bold {
+        font-weight: 600;
+    }
+
+    &--bold {
+        font-weight: 700;
+    }
+
+    &--extra-bold {
+        font-weight: 700;
+    }
+
+    &--black {
+        font-weight: 900;
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+
+    &--link {
+        cursor: pointer;
+        
+    }
+
+    &--link-active {
+        text-decoration-line: underline;
+        cursor: pointer;
+        @include interaction-link-hover();
+    }
+
+    &--link{
+        cursor: pointer;
+        @include interaction-link-hover();
+    }
+}
+
+
+

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Findlay View Lofts - re-newed loft apartments in downtown cincinnati OTR
+      Findlay Market
+    </title>
+    <meta
+      name="description"
+      content="Uncover the city's heartbeat at Findlay View Lofts, located in Cincinnati's buzzing Over-the-Rhine district, adjacent to the iconic Findlay Market. Enjoy spacious loft living with sweeping market views, proximity to top dining, and cultural attractions of OTR."
+    />
+    <meta
+      name="keywords"
+      content="Cincinnati, OTR, Over the Rhine, rental apartments, units, 1 bedroom, 2 bedroom, studio, walkable, downtown"
+    />
+    <meta name="author" content="Golan Trevize LLC" />
+    <!-- Carousel -->
+    <link rel="stylesheet" href="library/owl.carousel.min.css" />
+    <link rel="stylesheet" href="library/owl.theme.default.min.css" />
+    <script src="library/jquery.min.js"></script>
+    <script src="library/owl.carousel.min.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="ui/style.css" />
+    <!-- Email Service-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/script.js"></script>
+    <!--Maps -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ui/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" />
+    <script src="library/maps/maps-findlay-view-lofts.js"></script>
+    <script id="nd-place-results-tmpl" type="text/x-handlebars-template">
+      {{#each places}}
+        <li class="place-result">
+          <div class="text">
+            <button class="name">{{name}}</button>
+            <div class="info">{{type}}</div>
+          </div>
+        </li>
+      {{/each}}
+    </script>
+    <script id="nd-place-details-tmpl" type="text/x-handlebars-template">
+      <div class="navbar">
+        <button class="back-button">
+          <img
+            class="icon"
+            src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg"
+            alt="back"
+          />
+          Back
+        </button>
+      </div>
+      <header>
+        <h2>{{name}}</h2>
+        <div class="info">
+          <a href="{{url}}" target="_blank">See on Google Maps</a>
+        </div>
+        {{#if type}}
+          <div class="info">{{type}}</div>
+        {{/if}}
+        {{#if duration}}
+          <div class="info">
+            <img
+              src="https://fonts.gstatic.com/s/i/googlematerialicons/directions_car/v11/24px.svg"
+              alt="car travel"
+              class="travel-icon"
+            />
+            <span>&nbsp;{{duration.text}}</span>
+          </div>
+        {{/if}}
+      </header>
+      <div class="section">
+        {{#if address}}
+          <div class="contact">
+            <img
+              src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v10/24px.svg"
+              alt="Address"
+              class="icon"
+            />
+            <div class="text">
+              {{address}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
+      {{#if photos}}
+        <div class="photos section">
+          {{#each photos}}
+            <button
+              class="photo"
+              style="background-image:url({{urlLarge}})"
+              aria-label="show photo in viewer"
+            ></button>
+          {{/each}}
+        </div>
+      {{/if}}
+      {{#if html_attributions}}
+        <div class="section">
+          {{#each html_attributions}}
+            <p class="attribution">{{{this}}}</p>
+          {{/each}}
+        </div>
+      {{/if}}
+    </script>
+    <!--Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!--Maps -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="_page">
+    <nav class="_navigation">
+      <a class="logo" href="/">
+        <img
+          class="logo__image"
+          src="assets/logos/OTR-Lofts_logo_light.png"
+          alt="OTR Lofts logo"
+        />
+      </a>
+      <div class="content">
+        <a
+          class="_t _t--font-secondary _t--color-secondary _t--20 _t--link link"
+          href="pendleton-lofts.html"
+          >Pendleton Lofts</a
+        >
+        <a
+          class="_t _t--font-secondary _t--color-secondary _t--20 _t--link-active link"
+          href="findlay-view-lofts.html"
+          >Findlay View Lofts</a
+        >
+        <a
+          class="_t _t--font-secondary _t--color-secondary _t--20 _t--link link"
+          href="contact-us.html"
+          >Contac Us</a
+        >
+      </div>
+      <div class="menu">
+        <button id="openNavigation" class="menu__btn">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </nav>
+    <header class="_section _section--wide">
+      <div class="_cover">
+        <picture class="_cover__picture">
+          <source
+            srcset="assets/images/FindlayViewLofts_cover.webp"
+            type="image/webp"
+          />
+          <img
+            class="_cover__image"
+            src="assets/images/FindlayViewLofts_cover.jpg"
+            alt="Findlay View Lofts cover"
+          />
+        </picture>
+        <div class="_cover__background"></div>
+        <div class="_cover__content">
+          <div class="content">
+            <h1 class="title">
+              <span
+                class="_t _t--font-secondary _t--40 _t--regular _t--color-secondary title__row"
+                >Lofts II</span
+              >
+              <span
+                class="_t _t--font-secondary _t--56 _t--bold _t--color-secondary title__row"
+                >Findlay View Lofts</span
+              >
+            </h1>
+            <div class="navigation">
+              <a
+                target="_blank"
+                href="https://app.tenantturner.com/qualify/1733-elm-street---1c?p=Company"
+                class="_t _t--font-secondary _t--24 _t--regular _t--color-secondary _t--link-active navigation-item"
+                >Apply Today
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="_section _section--bc-primary">
+      <div class="_section__content">
+        <section class="_box _box--first">
+          <header class="_box__header">
+            <h3 class="_t _t--40 _t--font-secondary">1-2 BADS | 1 BATH</h3>
+            <h3 class="_t _t--40 _t--font-secondary">$950 MONTHLY RENT</h3>
+          </header>
+          <main class="_box__main">
+            <div class="_grid">
+              <div class="_col _col-9 _col-l-12">
+                <p class="_t _t--18 _t--paragraph">
+                  Welcome to Findlay View Lofts – a beautifully renovated
+                  building overlooking Cincinnati’s historic Findlay Market.
+                  Perfectly placed for food enthusiasts and city explorers. Walk
+                  or catch the streetcar to downtown, and enjoy all the best of
+                  OTR. Findlay View lofts is a historic building that was
+                  recently lovingly renovated with brand new everything.
+                  Experience a lifestyle where city pulse and market charm
+                  intersect.
+                </p>
+              </div>
+            </div>
+          </main>
+        </section>
+        <section class="_box">
+          <header class="_box__header">
+            <h3 class="_t _t--40 _t--font-secondary">Amenities</h3>
+          </header>
+          <main class="_box__main">
+            <div class="_grid">
+              <div class="_col _col-9 _col-l-12">
+                <p class="_t _t--18 _t--paragraph">
+                  •Newly restored with brand new everything<br />
+                  •24/7 professional property management <br />
+                  •In-unit laundry <br />
+                  •Blazing fast fiber internet (FTTH) <br />
+                  •Hardwood floors <br />
+                  •Beautiful views of historic Findlay Market<br />
+                  •Next door to a variety of restaurants, coffee shops and
+                  breweries
+                </p>
+              </div>
+            </div>
+          </main>
+        </section>
+        <section class="_box">
+          <main class="_box__main">
+            <div class="" id="gallery-container-FindlayViewLofts"></div>
+          </main>
+        </section>
+        <section class="_box">
+          <header class="_box__header">
+            <h3 class="_t _t--40 _t--font-secondary">Floorplan</h3>
+          </header>
+          <main class="_box__main">
+            <div class="_grid">
+              <div class="_col _col-6 _col-l-8 _col-m-10 _col-s-12">
+                <img
+                  class="floorplan"
+                  src="assets/images/findlay-view-lofts_floorplans.png"
+                  alt="findlay-view-lofts_floorplans"
+                />
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+    </div>
+
+    <section class="_map">
+      <h3 class="_map__title _t _t--40 _t--font-secondary">
+        1733 Elm St., Cincinnati, OH 45202
+      </h3>
+
+      <div class="_map__content">
+        <div class="neighborhood-discovery">
+          <div class="places-panel panel no-scroll">
+            <div class="results">
+              <ul class="place-results-list"></ul>
+            </div>
+            <button class="show-more-button sticky">
+              <span>Show More</span>
+              <img
+                class="right"
+                src="https://fonts.gstatic.com/s/i/googlematerialicons/expand_more/v11/24px.svg"
+                alt="expand"
+              />
+            </button>
+          </div>
+          <div class="details-panel panel"></div>
+          <div class="map"></div>
+          <div class="photo-modal">
+            <img alt="place photo" />
+            <div>
+              <button class="back-button">
+                <img
+                  class="icon"
+                  src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg"
+                  alt="back"
+                />
+              </button>
+              <div class="photo-text">
+                <div class="photo-place"></div>
+                <div class="photo-attrs">Photo by <span></span></div>
+              </div>
+            </div>
+          </div>
+          <svg
+            class="marker-pin"
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="38"
+            fill="none"
+          >
+            <path
+              d="M13 0C5.817 0 0 5.93 0 13.267c0 7.862 5.59 10.81 9.555 17.624C12.09 35.248 11.342 38 13 38c1.723 0 .975-2.817 3.445-7.043C20.085 24.503 26 21.162 26 13.267 26 5.93 20.183 0 13 0Z"
+            />
+          </svg>
+        </div>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnNk-aWiB0neUZY6n9fvOWewBJd1Ke7MQ&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_neighborhooddiscovery_v2_cBC"
+          async
+          defer
+        ></script>
+      </div>
+    </section>
+
+    <section class="_section _section--bc-secondary">
+      <div class="_section__content">
+        <section class="_form">
+          <h3
+            class="_form__title _t _t--font-secondary _t--color-secondary _t--40"
+          >
+            Have a question?
+          </h3>
+          <div class="_form__content">
+            <form
+              id="myForm"
+              onsubmit="return submitForm()"
+              action="#"
+              method="post"
+            >
+              <div class="_grid _grid-row-gap-no">
+                <!--Form Control firstName-->
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="firstNameFC"
+                      name="firstNameFC"
+                      placeholder="First Name"
+                      required
+                    />
+                    <span class="error" id="firstNameFCError"></span>
+                  </div>
+                </div>
+                <!--Form Control lastName-->
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="lastNameFC"
+                      name="lastNameFC"
+                      placeholder="Last Name"
+                      required
+                    />
+                    <span class="error" id="lastNameFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="_grid _grid-row-gap-no">
+                <div
+                  class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-s-6 _col-xs-12"
+                >
+                  <!--Form Control email-->
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="emailFC"
+                      name="emailFC"
+                      placeholder="Email"
+                      required
+                    />
+                    <span class="error" id="emailFCError"></span>
+                  </div>
+                </div>
+                <div class="_col _col-2 _col-l-3 _col-m-4 _col-s-6 _col-xs-12">
+                  <!--Form Control phone-->
+                  <div class="_form-control _form-control--basic">
+                    <input
+                      type="text"
+                      id="phoneFC"
+                      name="phoneFC"
+                      placeholder="Phone"
+                      required
+                    />
+                    <span class="error" id="phoneFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!--Form Control receiveTextMessages-->
+              <div class="_form-control _form-control--checkbox">
+                <label for="receiveTextMessagesFC" class="container"
+                  >Yes, I’d be happy to receive text messages
+                  <input
+                    type="checkbox"
+                    id="receiveTextMessagesFC"
+                    name="receiveTextMessagesFC"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <!--Form Control Group property-->
+              <div class="_form-control-checkbox-group">
+                <p class="labels">I am interested in a property:</p>
+                <div class="checkboxs">
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="propertyPendletonLoftsFC" class="container"
+                      >Pendleton Lofts
+                      <input
+                        type="checkbox"
+                        id="propertyPendletonLoftsFC"
+                        name="propertyPendletonLoftsFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="propertyFindlayViewLoftsFC" class="container"
+                      >Findlay View Lofts
+                      <input
+                        type="checkbox"
+                        id="propertyFindlayViewLoftsFC"
+                        name="propertyFindlayViewLoftsFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!--Form Control Group description-->
+              <div class="_grid">
+                <div class="_col _col-4 _col-l-6 _col-m-8 _col-s-12 _col-xs-12">
+                  <div class="_form-control _form-control--texarea">
+                    <label for="messageFC">Message:</label>
+                    <textarea
+                      id="messageFC"
+                      name="messageFC"
+                      required
+                      placeholder="Message"
+                    ></textarea>
+                    <span class="error" id="messageFCError"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!--Form Control Group Preffered Method-->
+              <div class="_form-control-checkbox-group">
+                <p class="labels">Preffered Method of Contact:</p>
+                <div class="checkboxs">
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodCallFC" class="container"
+                      >Call
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodCallFC"
+                        name="prefferedMethodCallFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodTextFC" class="container"
+                      >Text
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodTextFC"
+                        name="prefferedMethodTextFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="_form-control _form-control--checkbox">
+                    <label for="prefferedMethodEmailFC" class="container"
+                      >Email
+                      <input
+                        type="checkbox"
+                        id="prefferedMethodEmailFC"
+                        name="prefferedMethodEmailFC"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  id="recaptcha"
+                  data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                ></div>
+              </div>
+              <div>
+                <input class="_btn _btn--inverse" type="submit" value="SEND" />
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+    <footer>
+      <div class="_section _section _section--bc-primary">
+        <div class="_section__content">
+          <div class="_footer _grid">
+            <div class="main _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <a class="logo" href="/">
+                <img
+                  class="logo__image"
+                  src="assets/logos/OTR-Lofts_logo_dark.png"
+                  alt="OTR Lofts logo"
+                />
+              </a>
+            </div>
+
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">Pendleton Lofts</div>
+              <div class="info__content">
+                <div class="info__line">
+                  <p class="_t _t--20 _t--font-secondary">513.867.3501</p>
+                </div>
+                <div class="info__line">
+                  <a
+                    class="_t _t--20 _t--font-secondary"
+                    href="mailto:509@OTRLofts.com"
+                    >509@OTRLofts.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">
+                Findlay View Lofts
+              </div>
+              <div class="info__content">
+                <div class="info__line">
+                  <p class="_t _t--20 _t--font-secondary">513.813.4129</p>
+                </div>
+                <div class="info__line">
+                  <a
+                    class="_t _t--20 _t--font-secondary"
+                    href="mailto:1733@OTRLofts.com"
+                    >1733@OTRLofts.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="info _col _col-3 _col-m-4 _col-s-12 _col-xs-12">
+              <div class="info__title _t _t--20 _t--bold">Follow Us</div>
+              <div class="info__content">
+                <div class="info__line socials">
+                  <a class="social" href=""
+                    ><ion-icon name="logo-facebook"></ion-icon
+                  ></a>
+                  <a class="social" href=""
+                    ><ion-icon name="logo-linkedin"></ion-icon
+                  ></a>
+                  <a class="social" href=""
+                    ><ion-icon name="logo-instagram"></ion-icon
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_section _section _section--bc-secondary _section--padding-S">
+        <div class="_section__content">
+          <div class="_copywrite _t _t--14 _t--color-secondary">
+            © 2023 OTRlofts.com
+          </div>
+        </div>
+      </div>
+    </footer>
+    <nav id="navigation" class="_nav-modal">
+      <a class="_t _t--font-secondary _t--color-secondary _t--24 link" href="/"
+        >Home</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 link"
+        href="pendleton-lofts.html"
+        >Pendleton Lofts</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 _t--link-active link"
+        href="findlay-view-lofts.html"
+        >Findlay View Lofts</a
+      >
+      <a
+        class="_t _t--font-secondary _t--color-secondary _t--24 _t--link link"
+        href="contact-us.html"
+        >Contac Us</a
+      >
+      <button id="closeNavigation" class="close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </nav>
+    <div id="modal"></div>
+  </body>
+</html>
