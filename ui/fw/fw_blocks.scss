@@ -402,6 +402,10 @@
             text-align: center;
             margin-top: 8px;
         }
+
+        &__line{
+            margin-bottom: 8px;
+        }
     }
 
     .socials{
@@ -410,7 +414,7 @@
             margin-right: 8px;
             ion-icon {
                 color: $color-primary;
-                font-size: 40px;
+                font-size: 36px;
             }
         }
     }
@@ -449,7 +453,7 @@
 
     .logo{
         &__image{
-            height: 100%;
+            height: 140%;
         }
     }
 
@@ -563,7 +567,7 @@
 
 ._contact{
     .head-line{
-        margin-bottom: $s-s;
+        margin-bottom: $s-xs;
     }
     .logo{
         &__image{
@@ -573,4 +577,19 @@
     .info{
         margin-top: 24px;
     }
+}
+
+._notification{
+    position: fixed;
+    bottom: 0;
+    width: 300px;
+    padding: 20px;
+    background-color: $color-background-primary;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 24px;
+    box-shadow: 2px 1px 7px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }

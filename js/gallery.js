@@ -1025,15 +1025,14 @@ function initGalleries() {
 
       // Modal
       for (let i = 0; i < gallery.images.length; i++) {
-        const image = gallery.images[i];
         const divElement = document.getElementById(
           `carousel-${gallery.name}-item-${i}`
         );
 
         // Dodavanje event slušača na klik div elementa
-        // divElement.addEventListener("click", () =>
-        //   openGalleryModal(gallery, i + 1)
-        // );
+        divElement.addEventListener("click", () =>
+          openGalleryModal(gallery, i + 1)
+        );
       }
     }
   });
@@ -1061,7 +1060,7 @@ function createGallery(gallery) {
               `;
 }
 
-function createArticles(gallery) {
+function createArticles(gallery, size = 512) {
   let articles = "";
 
   for (let i = 0; i < gallery.images.length; i++) {
@@ -1074,12 +1073,12 @@ function createArticles(gallery) {
                     <picture>
                       <source
                         class="owl-lazy"
-                        data-srcset="assets/images/${image.path}_512.webp"
+                        data-srcset="assets/images/${image.path}_${size}.webp"
                         type="image/webp"
                       />
                       <img
                         class="owl-lazy"
-                        data-srcset="assets/images/${image.path}_512.jpg"
+                        data-srcset="assets/images/${image.path}_${size}.jpg"
                         alt="${image.alt}"
                       />
                     </picture>
@@ -1107,6 +1106,7 @@ function createArticles(gallery) {
 }
 
 function openGalleryModal(gallery, index) {
+  console.log(index);
   const modal = document.getElementById("modal");
   modal.innerHTML = createModal(gallery);
   owlModal = $(`.owl-carousel-modal-${gallery.name}`);
@@ -1115,7 +1115,20 @@ function openGalleryModal(gallery, index) {
     margin: 30,
     loop: false,
     nav: false,
+    lazyLoad: true,
     autoHeight: true,
+  });
+  owlModal.trigger("to.owl.carousel", [index - 1, 0, true]);
+  $(`#owl-carousel-modal-next-${gallery.name}`).click(function () {
+    owlModal.trigger("next.owl.carousel");
+  });
+
+  $(`#owl-carousel-modal-prev-${gallery.name}`).click(function () {
+    owlModal.trigger("prev.owl.carousel");
+  });
+
+  $(`#owl-carousel-modal-close-${gallery.name}`).click(function () {
+    modal.innerHTML = "";
   });
 }
 
@@ -1127,14 +1140,14 @@ function createModal(gallery) {
           <div class="owl-carousel-modal-${
             gallery.name
           } owl-carousel owl-theme">
-           ${createArticles(gallery)}
+           ${createArticles(gallery, 1200)}
           </div>
           <button id="owl-carousel-modal-prev-${
             gallery.name
           }" class="btn btn--previus">
                 <ion-icon size="large" name="chevron-back-outline"></ion-icon>
               </button>
-              <button id="owl-carousel-next-modal-${
+              <button id="owl-carousel-modal-next-${
                 gallery.name
               }" class="btn btn--next">
                 <ion-icon
@@ -1144,7 +1157,7 @@ function createModal(gallery) {
               </button>
         </div>
       </div>
-      <button id="btnCloseGalleryModal" class="close">
+      <button id="owl-carousel-modal-close-${gallery.name}" class="close">
         <ion-icon name="close-outline"></ion-icon>
       </button>
     </section>

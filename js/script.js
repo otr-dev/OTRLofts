@@ -58,13 +58,6 @@ function submitForm() {
     return false;
   }
 
-  // const recaptchaResponse = grecaptcha.getResponse();
-
-  // if (!recaptchaResponse) {
-  //   alert("Molimo vas da potvrdite da niste robot.");
-  //   return false;
-  // }
-
   const formData = {
     firstName: document.getElementById("firstNameFC").value.trim(),
     lastName: document.getElementById("lastNameFC").value.trim(),
@@ -78,6 +71,10 @@ function submitForm() {
       (document.getElementById("propertyFindlayViewLoftsFC").checked
         ? "FindlayViewLofts "
         : ""),
+    toEmail: toEmail(
+      document.getElementById("propertyPendletonLoftsFC").checked,
+      document.getElementById("propertyFindlayViewLoftsFC").checked
+    ),
     prefferedMethods:
       (document.getElementById("prefferedMethodTextFC").checked
         ? "Text "
@@ -93,22 +90,19 @@ function submitForm() {
       : "NO",
   };
 
-  const emailJsPublicKey = "49RIxC69tnJEaShg2";
+  const emailJsPublicKey = "t2T67XRRykEXetbZe";
 
   console.log(formData);
 
   emailjs
-    .send("service_kwfxvel", "template_t5f065c", formData, emailJsPublicKey)
+    .send("service_oo0269v", "template_g11k999", formData, emailJsPublicKey)
     .then(
       function (response) {
-        alert(
-          "Your form has been successfully submitted! Thank you for your message."
-        );
         resetForm();
-        console.log("SUCCESS!", response.status, response.text);
+        notification("Your form has been successfully submitted!");
       },
       function (error) {
-        alert(
+        notification(
           "There was an error while submitting the form. Please try again later."
         );
         console.log("FAILED...", error);
@@ -148,4 +142,29 @@ function closeModal() {
   document.getElementById("navigation").style.display = "none";
 }
 
-// Dodajte događaje na dugme i ikonu za zatvaranje
+function toEmail(PendletonLoftsChecked, FindlayViewLoftsChecked) {
+  if (PendletonLoftsChecked && FindlayViewLoftsChecked) {
+    return "mladen.potrebic@gmail.com";
+  }
+  if (PendletonLoftsChecked) {
+    return "mladenmijatovic381@gmail.com";
+  }
+
+  if (FindlayViewLoftsChecked) {
+    return "dev.117.mp@gmail.com";
+  }
+
+  return "mladen.potrebic@gmail.com";
+}
+
+function notification(text) {
+  var notificationsContainer = document.getElementById("notifications");
+  notificationsContainer.innerHTML = `
+    <div class="_notification">
+        <p class="_t _t--16">${text}</p>
+    </div>
+  `;
+  setTimeout(function () {
+    notificationsContainer.innerHTML = "";
+  }, 3000);
+}
