@@ -92,8 +92,6 @@ function submitForm() {
 
   const emailJsPublicKey = "t2T67XRRykEXetbZe";
 
-  console.log(formData);
-
   emailjs
     .send("service_oo0269v", "template_g11k999", formData, emailJsPublicKey)
     .then(
@@ -105,7 +103,6 @@ function submitForm() {
         notification(
           "There was an error while submitting the form. Please try again later."
         );
-        console.log("FAILED...", error);
       }
     );
 
@@ -134,7 +131,6 @@ function resetForm() {
 }
 
 function openModal() {
-  console.log("test");
   document.getElementById("navigation").style.display = "flex";
 }
 
@@ -144,17 +140,17 @@ function closeModal() {
 
 function toEmail(PendletonLoftsChecked, FindlayViewLoftsChecked) {
   if (PendletonLoftsChecked && FindlayViewLoftsChecked) {
-    return "mladen.potrebic@gmail.com";
+    return "info@otrlofts.com";
   }
   if (PendletonLoftsChecked) {
-    return "mladenmijatovic381@gmail.com";
+    return "509@otrlofts.com";
   }
 
   if (FindlayViewLoftsChecked) {
-    return "dev.117.mp@gmail.com";
+    return "1733@OTRLofts.com";
   }
 
-  return "mladen.potrebic@gmail.com";
+  return "info@otrlofts.com";
 }
 
 function notification(text) {

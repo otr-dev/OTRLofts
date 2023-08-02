@@ -1106,7 +1106,6 @@ function createArticles(gallery, size = 512) {
 }
 
 function openGalleryModal(gallery, index) {
-  console.log(index);
   const modal = document.getElementById("modal");
   modal.innerHTML = createModal(gallery);
   owlModal = $(`.owl-carousel-modal-${gallery.name}`);
